@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>จดหมายถึงบี๋ 💗</title>
+<style>
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(145deg,#fff7fb,#ffd9e8);color:#6d3a4d;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}.heart{position:absolute;bottom:-40px;font-size:22px;animation:float 7s linear infinite;opacity:.65}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.card{width:min(92vw,430px);padding:34px 25px;border-radius:28px;background:rgba(255,255,255,.88);box-shadow:0 20px 60px #d982a744;text-align:center;position:relative;z-index:2}
+h1{margin:0 0 10px;font-size:28px;color:#c94f7c}.sub{font-size:14px;color:#9a6678;margin-bottom:25px}
+input{width:100%;padding:15px;border:2px solid #f3b4ca;border-radius:16px;text-align:center;font-size:22px;letter-spacing:7px;outline:none;background:#fffafb}
+button{margin-top:15px;width:100%;border:0;padding:14px;border-radius:16px;background:#e978a2;color:white;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px #e978a255}
+#error{height:22px;color:#d34b72;font-size:13px;margin-top:9px}
+.letter{display:none;text-align:left;animation:show .7s ease}@keyframes show{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.letter h2{text-align:center;color:#c94f7c;margin:0 0 20px}.paper{background:#fffafd;border:1px solid #f5ccdb;border-radius:20px;padding:22px;line-height:1.9;font-size:16px;white-space:pre-line;box-shadow:inset 0 0 30px #f8d9e555}
+.signature{text-align:right;margin-top:15px;color:#c94f7c;font-weight:700}
+.small{text-align:center;margin-top:18px;font-size:12px;color:#b17b8e}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<main class="card">
+<section id="lock">
+<h1>💌 จดหมายลับถึงบี๋</h1>
+<div class="sub">จดหมายฉบับนี้มีไว้สำหรับคนพิเศษเท่านั้น<br>ใส่รหัสผ่านเพื่อเปิดอ่านนะคะ ♡</div>
+<input id="pw" type="password" inputmode="numeric" maxlength="6" placeholder="••••••">
+<button onclick="openLetter()">💗 เปิดจดหมาย</button>
+<div id="error"></div>
+</section>
+
+<section id="letter" class="letter">
+<h2>สุขสันต์วันครบรอบนะคะ 💗</h2>
+<div class="paper">สุขสันต์วันครบรอบนะคะ ลิงค์นี้ไม่รู้จะออกมาสวยสมบูรณ์แบบมั้ย แต่หนูตั้งใจทำให้บี๋ หนูรักบี๋ค่ะ
+
+5เดือนแล้วแต่หนูยังตื่นเต้นกับทุกๆเดือนในวันครบรอบ ตั้งแต่มีบี๋ยอมรับเลยค่ะพึ่งได้รู้ว่ารักมันหน้าตาเป็นยังไง หนูรักบี๋มากก
+
+หนูจะเส้ามากถ้ารู้ว่าวันนี้หนูทำตัวไม่น่ารักจนทำบี๋เสียใจ ขอบคุณสำหรับทุกอย่างนะคะ แล้วก็ขอโทษที่บางอย่างอาจจะนิสัยไม่ดีใส่ไปบ้างเหมือนกัน
+
+อยู่กับหนูไปนานๆนาา
+
+รักบิ๋ 💗</div>
+<div class="signature">จากหนู ถึงบี๋ ♡</div>
+<div class="small">5 เดือนแล้วนะคะ 🥺💞</div>
+</section>
+</main>
+<script>
+function openLetter(){
+ const p=document.getElementById('pw').value;
+ const e=document.getElementById('error');
+ if(p==='020569'){
+   document.getElementById('lock').style.display='none';
+   document.getElementById('letter').style.display='block';
+   e.textContent='';
+ }else e.textContent='รหัสผ่านไม่ถูกต้องนะคะ ลองใหม่อีกครั้ง 💗';
+}
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')openLetter()});
+for(let i=0;i<18;i++){let s=document.createElement('span');s.className='heart';s.textContent=['♡','♥','💗','💕'][i%4];s.style.left=Math.random()*100+'%';s.style.animationDelay=Math.random()*6+'s';s.style.fontSize=(15+Math.random()*18)+'px';document.getElementById('hearts').appendChild(s)}
+</script>
+</body>
+</html>
